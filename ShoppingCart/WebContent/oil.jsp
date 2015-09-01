@@ -71,20 +71,6 @@
 	
 	
 	<div class="container">
-		<form role="form" action="CartServlet" method="post">
-			<input type="hidden" name="action" value="oil" />
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-2">
-					<center>
-						<button type="submit" class="btn btn-primary btn-lg btn-block">View Cart</button>
-					</center>
-				</div>
-			</div>
-		</form>
-	</div>
-	
-	
-	<div class="container">
 	<a href = "index.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
 	</div>
 	

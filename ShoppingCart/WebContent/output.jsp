@@ -26,6 +26,10 @@
     ${sessionScope.shopping_cart[2].price} --%>
     
  <table> ${message} </table>
+ 
+ <div class="container">
+	<a href = "index.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
+	</div>
 
 
 </body>

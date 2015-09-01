@@ -73,7 +73,7 @@ public class AddServlet extends HttpServlet {
 			}
 			
 			myArray.add(myCart);
-			getServletContext().getRequestDispatcher("/bbshampoo.jsp").forward(request,  response);
+			
 		}
 		
 		if(request.getParameter("action").equals("bbconditioner"))
@@ -89,7 +89,7 @@ public class AddServlet extends HttpServlet {
 			}
 			
 			myArray.add(myCart);
-			getServletContext().getRequestDispatcher("/bbconditioner.jsp").forward(request,  response);
+			
 		}
 		
 		
@@ -106,6 +106,7 @@ public class AddServlet extends HttpServlet {
 			}
 			
 			myArray.add(myCart);
+			
 		}
 		
 		
@@ -122,6 +123,7 @@ public class AddServlet extends HttpServlet {
 			}
 			
 			myArray.add(myCart);
+			
 		}
 		
 		
@@ -237,6 +239,8 @@ public class AddServlet extends HttpServlet {
 		
 		System.out.println(myArray);
 		session.setAttribute("shopping_cart", myArray);
+		
+		getServletContext().getRequestDispatcher("/confirmation.jsp").forward(request,  response);
 		
 	/*	for (Cart list1 : myArray)
 		{
