@@ -1,14 +1,14 @@
 import java.math.BigDecimal;
 
 
-public class Cart {
+public class CartObj {
 	
 	private String name;
 	private double price;
 	private int quantity;
 	
 	
-	public Cart() {
+	public CartObj() {
 
 		this.name = "";
 		this.price = 0;

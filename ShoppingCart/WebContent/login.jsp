@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -13,21 +13,22 @@
 <body>
 
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Hair and Stuff</a>
+
+<div class="container">
+  <h2>Login</h2>
+  <form role="form" action="LoginServlet" method="post">
+    <div class="form-group">
+      <label for="email">Username:</label>
+      <input type="text" class="form-control" id="username" name= "username">
     </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="list_unactive.jsp">Items</a></li>
-        <li><a href="login.jsp">Login</a></li>
-        <li><a href="CreateAccount.jsp">Create Account</a></li>
-      </ul>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="text" class="form-control" id="pwd" name= "pwd">
     </div>
-  </div>
-</nav>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+</div>
+
 
 
 </body>

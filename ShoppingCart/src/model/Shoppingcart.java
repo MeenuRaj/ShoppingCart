@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
-@Table(name="SHOPPINGCART", schema="TESTDB")
+@Table(name="Shoppingcart", schema="TESTDB")
 @NamedQuery(name="Shoppingcart.findAll", query="SELECT s FROM Shoppingcart s")
 public class Shoppingcart implements Serializable {
 	private static final long serialVersionUID = 1L;

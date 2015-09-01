@@ -18,7 +18,7 @@
 <h1>Added to Cart</h1>
 
 <div class="container">
-	<a href = "index.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
+	<a href = "list.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
 	</div>
 	
 	<div class="container">

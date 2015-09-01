@@ -38,27 +38,24 @@ public class AddServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Cart myCart = new Cart();
-		HttpSession session = request.getSession();
-		ArrayList<Cart> myArray;
+		CartObj myCart = new CartObj();
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		HttpSession session = request.getSession(true); 
+		String uid = (String) session.getAttribute("username");
+		
+		ArrayList<CartObj> myArray;
 		if(session.getAttribute("shopping_cart")==null)
 		{
-			myArray = new ArrayList<Cart>();
+			myArray = new ArrayList<CartObj>();
 		}
 		else
 		{
-			myArray = (ArrayList<Cart>)session.getAttribute("shopping_cart");
+			myArray = (ArrayList<CartObj>)session.getAttribute("shopping_cart");
 		}
 	
-		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		EntityTransaction trans = em.getTransaction();
-		model.Shoppingcart shop = new model.Shoppingcart();
 		
 		//message= "<thead><tr><th>Student ID</th><th>Class</th><th>Assignment</th><th>Assignment Type</th><th>Date</th><th>Garde</th></tr></thead>";
-		
-
-		
-		
+	
 		
 		if(request.getParameter("action").equals("bbshampoo"))
 		{
@@ -72,9 +69,9 @@ public class AddServlet extends HttpServlet {
 				myCart.setQuantity(quantity);
 			}
 			
-			myArray.add(myCart);
-			
+			myArray.add(myCart);	
 		}
+		
 		
 		if(request.getParameter("action").equals("bbconditioner"))
 		{

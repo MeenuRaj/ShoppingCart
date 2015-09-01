@@ -16,6 +16,24 @@
 </head>
 <body>
 
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Hair and Stuff</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="list.jsp">Items</a></li>
+        <li><a href="login.jsp">View Cart</a></li>
+        <li><a href="logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container">
 		<center>
 			<img src="bbconditioner.jpg" class="img-rounded" alt="Cinque Terre"
@@ -70,7 +88,7 @@
 	</div>
 	
 	<div class="container">
-	<a href = "index.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
+	<a href = "list.jsp"><button type="button" class="btn btn-info btn-lg">Continue Shopping</button></a>
 	</div>
 	
 </body>

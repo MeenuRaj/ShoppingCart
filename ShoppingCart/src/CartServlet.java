@@ -33,13 +33,13 @@ public class CartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true); 
-		List<Cart> cart = (List<Cart>) session.getAttribute("shopping_cart");
+		List<CartObj> cart = (List<CartObj>) session.getAttribute("shopping_cart");
 		String message = "";
 		double total = 0;
 		double sum = 0;
 		String f_amount = "";
 		message = "<thead><tr><th>You're Cart</th></tr></thead>";
-		for(Cart loop: cart)
+		for(CartObj loop: cart)
 		{
 			
 			message += "<tr><td>Item: "+loop.getName()+"</td></tr>\n";
@@ -53,7 +53,7 @@ public class CartServlet extends HttpServlet {
 		
 		message += "<tr><td>Total due is:  " +sum+ "</td></tr>\n";
 		
-		for (Cart list1 : cart)
+		for (CartObj list1 : cart)
 		{
 			System.out.println(list1.getName());
 			System.out.println(list1.getPrice());
