@@ -13,7 +13,7 @@
 <body>
 
 
-
+<jsp:include page="header.jsp"/>
 <div class="container">
   <h2>Login</h2>
   <form role="form" action="LoginServlet" method="post">
@@ -29,7 +29,8 @@
   </form>
 </div>
 
-
-
 </body>
+
+<jsp:include page="footer.jsp"/>
+
 </html>

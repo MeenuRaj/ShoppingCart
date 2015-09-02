@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
 					myArray.add(myCart);
 				}
 				session.setAttribute("shopping_cart", myArray);
-					getServletContext().getRequestDispatcher("/loggedin.jsp").forward(request, response);
+					getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 				
 				

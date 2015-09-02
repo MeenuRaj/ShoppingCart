@@ -12,10 +12,10 @@
 </head>
 <body>
 
-
+<jsp:include page="header.jsp"/>
 
 <div class="container">
-  <h2>Login</h2>
+  <h2>Create Account</h2>
   <form role="form" action="CreateServlet" method="post">
     <div class="form-group">
       <label for="email">Name:</label>
@@ -38,6 +38,6 @@
 </div>
 
 
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html></html>

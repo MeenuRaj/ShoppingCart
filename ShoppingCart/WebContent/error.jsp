@@ -11,23 +11,9 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Hair and Stuff</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="list">Items</a></li>
-        <li><a href="CartServlet">View Cart</a></li>
-        <li><a href="logout">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<jsp:include page="header.jsp"/>
 
 <h1>${message}</h1>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

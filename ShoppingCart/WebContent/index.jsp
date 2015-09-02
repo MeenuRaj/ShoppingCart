@@ -13,22 +13,16 @@
 <body>
 
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Hair and Stuff</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.jsp">Home</a></li>
-        <li><a href="list">Items</a></li>
-        <li><a href="login.jsp">Login</a></li>
-        <li><a href="CreateAccount.jsp">Create Account</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<jsp:include page="header.jsp"/>
 
+<div class="container">
+		<center>
+			<img src="hair.jpg" class="img-rounded" alt="Cinque Terre"
+				width="600" height="400">
+		</center>
+	</div>
+<br><br><br>
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>
