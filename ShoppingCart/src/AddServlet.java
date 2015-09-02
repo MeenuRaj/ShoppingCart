@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Cart;
 import model.Shoppingcart;
 import customTools.DBUtil;
 
@@ -38,221 +39,85 @@ public class AddServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		CartObj myCart = new CartObj();
-		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		HttpSession session = request.getSession(true); 
-		String uid = (String) session.getAttribute("username");
+		//CartObj myCart = new CartObj();
 		
-		ArrayList<CartObj> myArray;
-		if(session.getAttribute("shopping_cart")==null)
+		String uid = (String) request.getSession().getAttribute("username");
+		int item_id = Integer.parseInt(request.getParameter("action"));
+		//ArrayList<CartObj> myArray;
+		System.out.println(item_id);
+		/*if(request.getSession().getAttribute("shopping_cart")==null)
 		{
+			System.out.println("in if");
 			myArray = new ArrayList<CartObj>();
+			String q = "select c from Cart c where c.cUname ='" +uid+"'";
+			TypedQuery<Cart> bq = em.createQuery(q, Cart.class);
+			List<Cart> list = bq.getResultList();
+			for (Cart temp : list) {
+				myCart.setName(temp.getProduct());
+				myCart.setPrice(temp.getPrice().doubleValue());
+				myCart.setQuantity(temp.getQuantity().intValue());
+				myArray.add(myCart);
+			}
+			
 		}
 		else
 		{
-			myArray = (ArrayList<CartObj>)session.getAttribute("shopping_cart");
-		}
-	
-		
+		System.out.println("this works");
+			myArray = (ArrayList<CartObj>)request.getSession().getAttribute("shopping_cart");
+				
 		//message= "<thead><tr><th>Student ID</th><th>Class</th><th>Assignment</th><th>Assignment Type</th><th>Date</th><th>Garde</th></tr></thead>";
-	
-		
-		if(request.getParameter("action").equals("bbshampoo"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 1";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);	
-		}
-		
-		
-		if(request.getParameter("action").equals("bbconditioner"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 2";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-			
-		}
-		
-		
-		if(request.getParameter("action").equals("gloss"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 3";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-			
-		}
-		
-		
-		if(request.getParameter("action").equals("foam"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 4";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-			
-		}
-		
-		
-		if(request.getParameter("action").equals("heat"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 5";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-		}
-		
-		
-		if(request.getParameter("action").equals("moroccon"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 6";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-		}
 
-		if(request.getParameter("action").equals("curl"))
-		{
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 7";
+			String q = "select s from Shoppingcart s where s.id = " +item_id;
 			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
 			List<Shoppingcart> list = bq.getResultList();
 			for (Shoppingcart temp : list) {
+				System.out.println("this works");
 				myCart.setName(temp.getItemname());
 				myCart.setPrice(temp.getPrice().doubleValue());
 				myCart.setQuantity(quantity);
+				myArray.add(myCart);
 			}
 			
-			myArray.add(myCart);
-		}
+				
+		}*/
 		
-		
-		if(request.getParameter("action").equals("pmshampoo"))
+		ArrayList<CartObj> myArray;
+		if(request.getSession().getAttribute("shopping_cart")==null)
 		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 8";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
+			myArray =new ArrayList<CartObj>();
 			
+		}
+	
+		myArray=(ArrayList<CartObj>) request.getSession().getAttribute("shopping_cart");
+		
+		
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		String q2 = "select s from Shoppingcart s where s.id = " +item_id;
+		
+		
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+		TypedQuery<Shoppingcart> bq2 = em.createQuery(q2, Shoppingcart.class);
+		List<Shoppingcart> list2 = bq2.getResultList();
+		CartObj myCart =new CartObj(); 
+		System.out.println("this is my array "+myArray);
+		for (Shoppingcart temp : list2) {
+			System.out.println("this works");
+			myCart.setName(temp.getItemname());
+			myCart.setPrice(temp.getPrice().doubleValue());
+			myCart.setQuantity(quantity);
 			myArray.add(myCart);
 		}
 		
-		
-		if(request.getParameter("action").equals("pmconditioner"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 9";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-		}
-		
-		
-		if(request.getParameter("action").equals("pmconditioner"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 9";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-		}
-		
-		
-		if(request.getParameter("action").equals("oil"))
-		{
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String q = "select s from Shoppingcart s where s.id = 10";
-			TypedQuery<Shoppingcart> bq = em.createQuery(q, Shoppingcart.class);
-			List<Shoppingcart> list = bq.getResultList();
-			for (Shoppingcart temp : list) {
-				myCart.setName(temp.getItemname());
-				myCart.setPrice(temp.getPrice().doubleValue());
-				myCart.setQuantity(quantity);
-			}
-			
-			myArray.add(myCart);
-		}
-		
+	
+	
 		System.out.println(myArray);
-		session.setAttribute("shopping_cart", myArray);
+		request.getSession().setAttribute("shopping_cart", myArray);
 		
 		getServletContext().getRequestDispatcher("/confirmation.jsp").forward(request,  response);
-		
-	/*	for (Cart list1 : myArray)
-		{
-			System.out.println(list1.getName());
-			System.out.println(list1.getPrice());
-			System.out.println(list1.getQuantity());
-		}*/
 	
-	/*	response.setContentType("text/html");
-	      getServletContext()
-	      .getRequestDispatcher("/output.jsp")
-	      .forward(request,  response);*/
-		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

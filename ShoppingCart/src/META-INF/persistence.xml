@@ -3,8 +3,9 @@
 	<persistence-unit name="ShoppingCart" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.Shoppingcart</class>
-		<class>model.User</class>
 		<class>model.Cart</class>
+		<class>model.User</class>
+		<class>model.Shppingcartreview</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>

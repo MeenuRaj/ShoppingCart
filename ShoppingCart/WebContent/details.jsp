@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -17,6 +16,7 @@
 <body>
 
 
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -24,18 +24,38 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Home</a></li>
         <li><a href="list">Items</a></li>
         <li><a href="CartServlet">View Cart</a></li>
+        <%if(session.getAttribute("username")==null){%>
+        	<li><a href="login.jsp">Login</a></li>
+        	<li><a href="CreateAccount.jsp">Create Account</a></li>
+        <%}else {%>
+        
         <li><a href="logout">Logout</a></li>
+        <% } %>
       </ul>
     </div>
   </div>
 </nav>
-<div class="container">
 
-<h1>Added to Cart</h1>
-</div>
-	
+
+<div class="container">
+		<center>
+			<img src="bbconditioner.jpg" class="img-rounded" alt="Cinque Terre"
+				width="250" height="240">
+		</center>
+	</div>
+
+
+	<div class="container">
+		<div class="jumbotron">
+			<center>
+				${item}
+			</center>
+		</div>
+	</div>
+
+${quantity}
 </body>
 </html>

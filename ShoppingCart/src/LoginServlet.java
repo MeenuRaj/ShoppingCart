@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
+
+import model.Cart;
 import model.User;
 import customTools.DBUtil;
 
@@ -62,9 +66,25 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			else	
-				getServletContext().getRequestDispatcher("/loggedin.jsp").forward(request, response);
-}
-	
+				{
+				ArrayList<CartObj> myArray = new ArrayList<CartObj>();
+				String q2 = "select c from Cart c where c.cUname ='" +username+"'";
+				TypedQuery<Cart> bq2 = em.createQuery(q2, Cart.class);
+				List<Cart> list = bq2.getResultList();
+				for (Cart temp : list) {
+					CartObj myCart =new CartObj();
+					myCart.setName(temp.getProduct());
+					myCart.setPrice(temp.getPrice().doubleValue());
+					myCart.setQuantity(temp.getQuantity().intValue());
+					myArray.add(myCart);
+				}
+				session.setAttribute("shopping_cart", myArray);
+					getServletContext().getRequestDispatcher("/loggedin.jsp").forward(request, response);
+
+				
+				
+				}
+	}	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -20,8 +20,8 @@
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="list.jsp">Items</a></li>
-        <li><a href="login.jsp">View Cart</a></li>
+        <li><a href="list">Items</a></li>
+        <li><a href="CartServlet">View Cart</a></li>
         <li><a href="logout">Logout</a></li>
       </ul>
     </div>
@@ -33,16 +33,8 @@
 <div class="container">
   <h1>Welcome to Hair and Stuff</h1>
   <div class="list-group">
-    <a href="bbshampoo.jsp" class="list-group-item">Bumble and Bumble Gentle Shampoo</a>
-    <a href="bbconditioner.jsp" class="list-group-item">Bumble and Bumble Rich Conditioner</a>
-    <a href="gloss.jsp" class="list-group-item">Paul Mitchell Smoothing Gloss Drops</a>
-    <a href="foam.jsp" class="list-group-item">Paul Mitchell Sculpting Foam</a>
-    <a href="heat.jsp" class="list-group-item">TRESemme Heat Tamer Protective Spray</a>
-    <a href="moroccon.jsp" class="list-group-item">Moroccan Oil Frizz Control</a>
-    <a href="curl.jsp" class="list-group-item">John Frieda Frizz Ease Curl reviver</a>
-    <a href="pmshampoo.jsp" class="list-group-item">Paul Mitchell Awapuhi Shampoo</a>
-    <a href="pmconditioner.jsp" class="list-group-item">Paul Mitchell Instant Moise Conditioner</a>
-    <a href="oil.jsp" class="list-group-item">Jasmine Perfumed Coconut Hair oil</a>
+  ${products}
+ 
   </div>
 </div>
 

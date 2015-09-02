@@ -45,13 +45,14 @@ public class logout extends HttpServlet {
 		
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
-		
+		if(!uid.equals("admin"))
+		{
 		
 		//****************
 		trans.begin();
-		String username = request.getParameter("username");
+
 		try {
-			String q="delete c from Cart c where c.cUname ='"+username+"'";
+			String q="delete from Cart c where c.cUname ='"+uid+"'";
 			System.out.println(q);
 			em.createQuery(q).executeUpdate();
 			trans.commit();
@@ -67,6 +68,7 @@ public class logout extends HttpServlet {
 		message = "<thead><tr><th>You're Cart</th></tr></thead>";
 		
 		try {
+			trans.begin();
 		for(CartObj loop: cart)
 		{
 			model.Cart newcart = new model.Cart();
@@ -89,8 +91,9 @@ public class logout extends HttpServlet {
 				e.printStackTrace();
 				
 			} 
+		}
 		session.setAttribute("username", null);
-		
+		session.setAttribute("shopping_cart", null);
 		/*for (CartObj list1 : cart)
 		{
 			System.out.println(list1.getName());
