@@ -20,8 +20,12 @@ public class Cart implements Serializable {
 	@Id
 	private long id;
 
+	private String bought;
+
 	@Column(name="C_UNAME")
 	private String cUname;
+
+	private BigDecimal credit;
 
 	private BigDecimal price;
 
@@ -40,12 +44,28 @@ public class Cart implements Serializable {
 		this.id = id;
 	}
 
+	public String getBought() {
+		return this.bought;
+	}
+
+	public void setBought(String bought) {
+		this.bought = bought;
+	}
+
 	public String getCUname() {
 		return this.cUname;
 	}
 
 	public void setCUname(String cUname) {
 		this.cUname = cUname;
+	}
+
+	public BigDecimal getCredit() {
+		return this.credit;
+	}
+
+	public void setCredit(BigDecimal credit) {
+		this.credit = credit;
 	}
 
 	public BigDecimal getPrice() {

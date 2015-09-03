@@ -18,9 +18,25 @@
 <jsp:include page="header.jsp"/>
     
  <table> ${message} </table>
+
+ <div class="container"> <h2>Vertical (basic) form</h2>
+  <form role="form" action = "payment.jsp" method = "post">
+    <button type="submit" class="btn btn-default">Checkout</button>
+  </form>
+</div>
+
  
+
 <jsp:include page="footer.jsp"/>
 
 
 </body>
 </html>
+
+
+
+  
+  <!--   <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div> -->
+    

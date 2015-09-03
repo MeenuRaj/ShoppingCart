@@ -133,9 +133,7 @@ public class CartServlet extends HttpServlet {
 			}
 			}
 		
-		
 		request.setAttribute("message", message);
-		
 		response.setContentType("text/html");
 	      getServletContext()
 	      .getRequestDispatcher("/output.jsp")

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.User;
+import model.Cart;
 import customTools.DBUtil;
 
 /**
@@ -80,10 +80,11 @@ public class logout extends HttpServlet {
 				newcart.setPrice(BigDecimal.valueOf(loop.getPrice()));
 				System.out.println(BigDecimal.valueOf(loop.getPrice()));
 				newcart.setQuantity(BigDecimal.valueOf(loop.getQuantity()));
-
+				newcart.setBought("no");
+				newcart.setCredit(BigDecimal.valueOf(0));
 				System.out.println(BigDecimal.valueOf(loop.getQuantity()));
 				em.persist(newcart);
-					
+
 		}
 			trans.commit();
 			} catch (Exception e) {
