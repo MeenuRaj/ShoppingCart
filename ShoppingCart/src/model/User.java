@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import java.math.BigDecimal;
+
 
 /**
  * The persistent class for the USERS database table.
@@ -20,6 +22,8 @@ public class User implements Serializable {
 
 	@Column(name="A_PASSWORD")
 	private String aPassword;
+
+	private BigDecimal credit;
 
 	private String email;
 
@@ -45,6 +49,14 @@ public class User implements Serializable {
 
 	public void setAPassword(String aPassword) {
 		this.aPassword = aPassword;
+	}
+
+	public BigDecimal getCredit() {
+		return this.credit;
+	}
+
+	public void setCredit(BigDecimal credit) {
+		this.credit = credit;
 	}
 
 	public String getEmail() {

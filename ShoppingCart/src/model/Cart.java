@@ -25,8 +25,6 @@ public class Cart implements Serializable {
 	@Column(name="C_UNAME")
 	private String cUname;
 
-	private BigDecimal credit;
-
 	private BigDecimal price;
 
 	private String product;
@@ -60,13 +58,6 @@ public class Cart implements Serializable {
 		this.cUname = cUname;
 	}
 
-	public BigDecimal getCredit() {
-		return this.credit;
-	}
-
-	public void setCredit(BigDecimal credit) {
-		this.credit = credit;
-	}
 
 	public BigDecimal getPrice() {
 		return this.price;

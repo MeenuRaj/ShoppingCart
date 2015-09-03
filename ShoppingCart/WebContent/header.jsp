@@ -17,10 +17,14 @@
         <li><a href="index.jsp">Home</a></li>
         <li><a href="list">Items</a></li>
      
-        <%if(session.getAttribute("username")==null){%>
+        <%if(request.getSession().getAttribute("username")==null){%>
         	<li><a href="login.jsp">Login</a></li>
         	<li><a href="CreateAccount.jsp">Create Account</a></li>
-        <%}else {%>
+        <%}else if(request.getSession().getAttribute("username").equals("admin")){%>
+            <li><a href="CartServlet">View Cart</a></li>
+              <li><a href="UserServlet">View Users</a></li>
+              <li><a href="logout">Logout</a></li>
+        <%} else {%>
            <li><a href="CartServlet">View Cart</a></li>
         <li><a href="logout">Logout</a></li>
         <% } %>

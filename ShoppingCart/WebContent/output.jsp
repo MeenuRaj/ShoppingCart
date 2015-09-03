@@ -19,7 +19,7 @@
     
  <table> ${message} </table>
 
- <div class="container"> <h2>Vertical (basic) form</h2>
+ <div class="container">
   <form role="form" action = "payment.jsp" method = "post">
     <button type="submit" class="btn btn-default">Checkout</button>
   </form>

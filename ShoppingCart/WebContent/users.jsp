@@ -12,16 +12,17 @@
 </head>
 <body>
 
-
 <jsp:include page="header.jsp"/>
- 
+
+
+
 <div class="container">
-		<center>
-			<img src="hair.jpg" class="img-rounded" alt="Cinque Terre"
-				width="600" height="400">
-		</center>
-	</div>
-<br><br><br>
+  <h1>Account Holders</h1>
+  <div class="list-group">
+  ${users}
+ 
+  </div>
+</div>
 <jsp:include page="footer.jsp"/>
 
 </body>

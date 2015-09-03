@@ -61,7 +61,7 @@ public class CartServlet extends HttpServlet {
 				message += "<tr><td>User: "+temp.getCUname()+"</td></tr>\n";
 				message += "<tr><td>Item: "+temp.getProduct()+"</td></tr>\n";
 				message += "<tr><td>Quantity: "+temp.getQuantity()+"</td></tr>\n";
-				message += "<tr><td>Price: "+temp.getPrice()+"</td></tr>\n";        
+				message += "<tr><td>Price: "+temp.getPrice()+"</td></tr>\n"; 
 
 			}
 			}
@@ -102,7 +102,10 @@ public class CartServlet extends HttpServlet {
 					myCart.setQuantity(temp.getQuantity().intValue());*/
 				//	myArray.add(myCart);
 				}
-				message += "<tr><td>Total due is:  " +sum+ "</td></tr>\n";		
+				
+				
+					message += "<tr><td>Total due is:  " +sum+ "</td></tr>\n";	
+				
 		
 			}
 			else
@@ -126,8 +129,15 @@ public class CartServlet extends HttpServlet {
 					sum += total;
 				}
 				
-				
-				message += "<tr><td>Total due is:  " +sum+ "</td></tr>\n";
+				double credit = (double) request.getSession().getAttribute("credit");
+				System.out.println("the credit works" +credit);
+				if(credit>0)
+				{
+				message += "<tr><td>Credit:  " +credit+ "</td></tr>\n";	
+				message +=  "<tr><td>Total due is:  " +(sum-credit)+ "</td></tr>\n";	
+				}
+				else
+					message += "<tr><td>Total due is:  " +sum+ "</td></tr>\n";
 				
 
 			}

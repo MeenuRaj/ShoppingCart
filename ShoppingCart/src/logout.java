@@ -81,7 +81,6 @@ public class logout extends HttpServlet {
 				System.out.println(BigDecimal.valueOf(loop.getPrice()));
 				newcart.setQuantity(BigDecimal.valueOf(loop.getQuantity()));
 				newcart.setBought("no");
-				newcart.setCredit(BigDecimal.valueOf(0));
 				System.out.println(BigDecimal.valueOf(loop.getQuantity()));
 				em.persist(newcart);
 

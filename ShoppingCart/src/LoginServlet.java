@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import model.Cart;
 import model.User;
 import customTools.DBUtil;
@@ -43,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("pwd");
-	
+		Double credit = 0.0;
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		model.User acc = new model.User();
 		String message = "";
@@ -58,6 +59,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println(aq);
 			List<User> list1=aq.getResultList();
 			System.out.println("query reult:"+aq.getResultList());
+			for(User temp: list1)
+				credit = temp.getCredit().doubleValue();
+			session.setAttribute("credit", credit);
+			System.out.println("The credit is "+credit);
 			if (list1 == null || list1.isEmpty())
 			{
 				message = "Incorrect username or password";
@@ -80,11 +85,11 @@ public class LoginServlet extends HttpServlet {
 				}
 				session.setAttribute("shopping_cart", myArray);
 					getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-
-				
-				
 				}
-	}	
+			
+		
+			}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
